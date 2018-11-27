@@ -1,0 +1,7 @@
+for x in sporecoat*
+do
+(cat "${x}"; echo) >> sporecoats.fasta
+done
+
+Muscle -in sporecoats.fasta -out sporecoats.afa
+
