@@ -1,0 +1,6 @@
+for x in transporter*
+do
+(cat "${x}" ; echo) >> transporters.fasta
+done
+
+Muscle -in transporters.fasta -out transporters.afa
