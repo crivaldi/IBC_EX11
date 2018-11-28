@@ -1,0 +1,16 @@
+proteomes/Arthrobacter.fasta.hits
+1
+proteomes/Bacillus.fasta.hits
+1
+proteomes/Clostridium.fasta.hits
+0
+proteomes/Flavobacterium.fasta.hits
+1
+proteomes/Limnohabitans.fasta.hits
+1
+proteomes/Rhizobium.fasta.hits
+0
+proteomes/Roseobacter.fasta.hits
+1
+proteomes/Verrucomicrobia.fasta.hits
+0
