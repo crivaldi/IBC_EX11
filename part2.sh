@@ -6,16 +6,19 @@
 # the number of hits to the HMM profile in each proteome
 # usage: bash part2.sh *.fasta
 
-
+# gets the transporter fasta aligned file from part 1
 ../../hmmbuild transpo_prof.hmm ../all_transpo.fasta.align
 
 for file in *.fasta
 do
 	../../hmmsearch --tblout $file._transpo.txt transpo_prof.hmm $file
+	# looks for the transporter gene in the proteome .fast file
+	# --tblout makes the output file in a tabular format
 done
 
 for file in *._transpo.txt
 do
 	echo $file >> hit_count.txt
+	# uses the tabular file to make the hit count text file
 	grep -v '#' $file | wc -l >> hit_count.txt
 done
