@@ -6,8 +6,8 @@
 # appends all the genes from the spore file into one .fasta file
 for file in spore*
 do
-	cat $file >> all_spore.fasta
-	echo >> all_spore.fasta
+	cat $file >> all_spore.fasta #appends file contents to new .fasta file
+	echo >> all_spore.fasta # new line
 done
 
 # uses muscle to find sequence alignment in the combined spore file
@@ -17,8 +17,8 @@ done
 # appends all the genes from the transporter files into one .fasta file
 for file in transporter*
 do
-	cat $file >> all_transpo.fasta
-	echo >> all_transpo.fasta
+	cat $file >> all_transpo.fasta #appends
+	echo >> all_transpo.fasta # new line
 done
 
 # uses muscle to find sequence alignment in the combined transporter file
