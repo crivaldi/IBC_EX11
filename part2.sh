@@ -11,14 +11,19 @@
 
 for file in *.fasta
 do
-	../../hmmsearch --tblout $file._transpo.txt transpo_prof.hmm $file
-	# looks for the transporter gene in the proteome .fast file
+	../../hmmsearch --tblout $file.transpo.out transpo_prof.hmm $file
+	# looks for the transporter gene in the proteome .fasta file
 	# --tblout makes the output file in a tabular format
 done
 
-for file in *._transpo.txt
+for file in *.transpo.out
 do
-	echo $file >> hit_count.txt
-	# uses the tabular file to make the hit count text file
+	a=$(basename $file)
+	# fetches the name of the file with the extensions
+	b=`basename $a .fasta.transpo.out`
+	# purifies the file name
+	echo $b >> hit_count.txt
+	# appends filename to hit_count.txt
 	grep -v '#' $file | wc -l >> hit_count.txt
+	# appends # hits 
 done
