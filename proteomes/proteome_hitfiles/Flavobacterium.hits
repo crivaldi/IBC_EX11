@@ -1,0 +1,14 @@
+#                                                                         --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name                  accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#          ------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+tr|A0A1S1J3R7|A0A1S1J3R7_9FLAO -          transporteralign     -            3.5e-09   33.9  26.4   5.1e-09   33.3  26.4   1.3   1   0   0   1   1   1   1 -
+#
+# Program:         hmmsearch
+# Version:         3.2.1 (June 2018)
+# Pipeline mode:   SEARCH
+# Query file:      transportermod.hmm
+# Target file:     Flavobacterium.fasta
+# Option settings: ./hmmsearch --tblout Flavobacterium.hits transportermod.hmm Flavobacterium.fasta 
+# Current dir:     /afs/nd.edu/user1/csheeha1/proteomes
+# Date:            Wed Nov 28 01:15:39 2018
+# [ok]

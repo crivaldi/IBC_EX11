@@ -1,0 +1,36 @@
+#Question 1 Codes:
+#To concatenate the sporecoat fastas (stored as hopeful.sh script):
+for filename in spore*.fasta
+do
+	cat $filename >> sporecomposite.fasta
+	echo  >> sporecomposite.fasta
+done
+
+#To concatenate the transporter fastas (stored as hopefultrans.sh script):
+for filename in trans*.fasta
+do
+	cat $filename >> transportercomposite.fasta
+	echo  >> transportercomposite.fasta
+done
+
+#To move items over to remote directory:
+scp *.fasta csheeha1@remote106.helios.nd.edu:/afs/nd.edu/user1/csheeha1/proteomes
+
+#To create alignment of spore sequences and transporter sequences from remote shell:
+./muscle3.8.31_i86linux64 -in sporecomposite.fasta -out sporealign.fasta
+./muscle3.8.31_i86linux64 -in transportercomposite.fasta -out transporteralign.fasta
+
+#To create HMM model of the transporter alignment:
+./hmmbuild transportermod.hmm transporteralign.fasta
+
+#To test HMM model against different species proteomes (stored as HMMSearchscriptFINAL.sh):
+for filename in *.fasta
+do
+	echo "$filename" >> HMMSearchResults.txt 
+	newname=$(echo "$filename" | sed 's/.fasta/.hits/')
+	./hmmsearch --tblout $newname transportermod.hmm $filename
+	cat "$newname" | grep -v “#” | sed -E 's/ +/ /g' | cut -d " " -f 12 >> HMMSearchResults.txt
+	echo  >> HMMSearchResults.txt
+done
+
+
