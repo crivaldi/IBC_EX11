@@ -1,0 +1,30 @@
+#This is my shell script:
+
+#generate HMM profile for transporter gene
+
+../local/bin/hmmbuild transportergene.hmm ../transporterfiles.fasta.align
+
+#use hmm to search the 8 bacteria - record name and number of hits
+#Usage from proteomes folder: bash unix-code-hmm.txt
+
+for files in *.fasta
+
+do
+
+../local/bin/hmmsearch --tblout genehits.txt transportergene.hmm $files
+x=$(cat genehits.txt | grep -v "#" | wc -l)
+echo $files,$x >> finalgenehits.txt
+
+done
+
+#These are the results for the eight bacteria found in the finalgenehits.txt file:
+
+#Arthrobacter.fasta,0
+#Bacillus.fasta,1
+#Clostridium.fasta,0
+#Flavobacterium.fasta,1
+#Limnohabitans.fasta,1
+#Rhizobium.fasta,0
+#Roseobacter.fasta,1
+#Verrucomicrobia.fasta,0
+
