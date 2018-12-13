@@ -1,0 +1,16 @@
+transporterArthrobacter.hits
+0
+transporterBacillus.hits
+1
+transporterClostridium.hits
+0
+transporterFlavobacterium.hits
+1
+transporterLimnohabitans.hits
+1
+transporterRhizobium.hits
+0
+transporterRoseobacter.hits
+1
+transporterVerrucomicrobia.hits
+0
